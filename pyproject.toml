@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "simple-chat-server"
+version = "0.1.0"
+description = ""
+authors = ["denisschmidt <parasolgroup25@gmail.com>"]
+readme = "README.md"
+packages = [{include = "simple_chat_server"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+yapf = "^0.32.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
