@@ -56,10 +56,15 @@ class Server:
 
         # perpetually listen for new connections
         while True:
-            client_socket, addr = socket_connection.accept()
-            # spawn a thread to deal with a new client and immediately go back to
-            # listening for new incoming connections
-            Thread(target=self.handle_client, args=(client_socket, ), daemon=True).start()
+            try:
+                client_socket, addr = socket_connection.accept()
+                print("\n{0} New connection!\n".format(addr))
+                # spawn a thread to deal with a new client and immediately go back to
+                # listening for new incoming connections
+                Thread(target=self.handle_client, args=(client_socket, ), daemon=True).start()
+            except Exception as ex:
+                print(ex)
+            socket_connection.close()
 
 
 class User:
